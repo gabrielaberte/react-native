@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Image, StyleSheet, Dimensions, View } from "react-native";
 import Topo from "../../assets/topo.png";
+import logo from '../../assets/logo.png'
 
 const width = Dimensions.get("screen").width;
 
@@ -11,7 +12,8 @@ export default function Cesta() {
       <Text style={estilos.titulo}>Detalhes da Cesta</Text>
       <View style={estilos.cesta}>
         <Text style={estilos.nome}>Cesta de Verduras</Text>
-        <View>
+        <View style={estilos.fazenda}>
+          <Image source={logo} style={estilos.imagemFazenda}/>
           <Text style={estilos.nomeFazenda}>Gabs Berte Farm</Text>
         </View>
         <Text style={estilos.estiloDescricao}>
@@ -29,6 +31,7 @@ const estilos = StyleSheet.create({
     width: "100%",
     //pegando altura / largura * width pra ajustar independente do tamanho do celular
     height: (578 / 768) * width,
+    fontFamily: "MontserratRegular"
   },
   titulo: {
     position: "absolute",
@@ -49,11 +52,22 @@ const estilos = StyleSheet.create({
     fontSize: 26,
     lineHeight: 42,
     color: "#464646",
-    fontWeight: "bold",
+    fontFamily: "MontserratBold"
+  },
+  imagemFazenda:{
+    width: 32,
+    height: 32,
+  },
+  fazenda:{
+    flexDirection: 'row',
+    paddingVertical: 12,
   },
   nomeFazenda: {
     fontSize: 16,
     lineHeight: 26,
+    marginLeft: 12,
+    fontFamily: "MontserratRegular"
+
   },
   estiloDescricao: {
     color: "#A3A3A3",
