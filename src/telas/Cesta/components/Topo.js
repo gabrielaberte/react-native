@@ -5,11 +5,11 @@ import Topos from "../../../../assets/topo.png";
 
 const width = Dimensions.get("screen").width;
 
-export default function Topo() {
+export default function Topo({titulo}) {
   return (
     <>
       <Image source={Topos} style={estilos.topo} />
-      <Texto style={estilos.titulo}>Detalhes da Cesta</Texto>
+      <Texto style={estilos.titulo}>{titulo}</Texto>
     </>
   );
 }
@@ -19,7 +19,6 @@ const estilos = StyleSheet.create({
     width: "100%",
     //pegando altura / largura * width pra ajustar independente do tamanho do celular
     height: (578 / 768) * width,
-    fontFamily: "MontserratRegular",
   },
   titulo: {
     position: "absolute",

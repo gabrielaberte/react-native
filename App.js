@@ -1,6 +1,9 @@
 import { StatusBar, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import Cesta from "./src/telas/Cesta/components";
+import Cesta from "./src/telas/Cesta";
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from "@expo-google-fonts/montserrat";
+import mock from './src/mocks/cesta';
+import AppLoading from "expo-app-loading";
+
 
 export default function App() {
   //importando as fontes do google
@@ -10,12 +13,14 @@ export default function App() {
   });
   //pra evitar se a pagina carregar antes da font estar carregada
   if(!fontCarregada) {
-    return <View></View>
+    return <AppLoading />
   }
+
+  //flex 1 é para que a safe area ocupe 100% da tela
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <View>
-        <Cesta />
+        <Cesta {...mock}/>
         <StatusBar />
       </View>
     </SafeAreaView>
